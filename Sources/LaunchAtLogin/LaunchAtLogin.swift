@@ -5,7 +5,7 @@ import os.log
 
 public enum LaunchAtLogin {
 	private static let logger = Logger(subsystem: "com.sindresorhus.LaunchAtLogin", category: "main")
-	fileprivate static let observable = Observable()
+	public static let observable = Observable()
 
 	/**
 	Toggle “launch at login” for your app or check whether it's enabled.
@@ -43,9 +43,9 @@ public enum LaunchAtLogin {
 	}
 }
 
-extension LaunchAtLogin {
+public extension LaunchAtLogin {
 	final class Observable: ObservableObject {
-		var isEnabled: Bool {
+		fileprivate(set) var isEnabled: Bool {
 			get { LaunchAtLogin.isEnabled }
 			set {
 				LaunchAtLogin.isEnabled = newValue
