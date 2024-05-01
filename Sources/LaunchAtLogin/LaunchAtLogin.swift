@@ -45,7 +45,7 @@ public enum LaunchAtLogin {
 
 public extension LaunchAtLogin {
 	final class Observable: ObservableObject {
-		fileprivate(set) public var isEnabled: Bool {
+		public var isEnabled: Bool {
 			get { LaunchAtLogin.isEnabled }
 			set {
 				LaunchAtLogin.isEnabled = newValue
